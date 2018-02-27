@@ -11,7 +11,7 @@ install:
     - sudo pip install ansible
     - mkdir -p /tmp/roles
     - "{ echo '[defaults]'; echo 'roles_path = ../:/tmp/roles'; } >> ansible.cfg"
-    - ansible-galaxy install -f -r --ignore-certs tests/requirements.yml -p /tmp/roles
+    - ansible-galaxy install -c -f -r tests/requirements.yml -p /tmp/roles
 
 script:
   - "ansible-playbook -i tests/inventory tests/travis.yml --syntax-check"
